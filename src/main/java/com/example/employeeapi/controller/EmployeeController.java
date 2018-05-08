@@ -18,11 +18,10 @@ public class EmployeeController {
     @RequestMapping("/employees")
     String getEmployees(Model model) {
 
-        model.addAttribute("message", "hello world");
+        model.addAttribute("employeeList", employeeRepository.getAllEmployees());
 
         return "employees";
     }
-
 
     @GetMapping("/employees/{id}")
     ResponseEntity getEmployee(@PathVariable("id") int id) {
